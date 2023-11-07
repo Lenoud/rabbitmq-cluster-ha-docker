@@ -1,0 +1,11 @@
+version: "3"
+services:
+  haproxy-web:
+    image: haproxy:1.7
+    container_name: haproxy-web
+    network_mode: rabbitmq-cluster_rabbitmq_net
+    ports:
+      - "15672:15672"
+    volumes:
+      - ./haproxy_web/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    restart: always
